@@ -4,6 +4,7 @@ const SET_FETCHING = 'app/boards/SET_FETCHING';
 const SET_SELECTED = 'app/boards/SET_SELECTED';
 const ADD_LIST_SAGA = 'app/boards/ADD_LIST_SAGA';
 const DELETE_LIST_SAGA = 'app/boards/DELETE_LIST_SAGA';
+const ADD_BOARD_SAGA = 'app/boards/ADD_BOARD_SAGA';
 
 export {
   FETCH_BOARD_SAGA,
@@ -12,4 +13,5 @@ export {
   SET_SELECTED,
   ADD_LIST_SAGA,
   DELETE_LIST_SAGA,
+  ADD_BOARD_SAGA,
 };

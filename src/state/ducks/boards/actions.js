@@ -2,7 +2,19 @@ import {
   FETCH_BOARD_SAGA,
   ADD_LIST_SAGA,
   DELETE_LIST_SAGA,
+  ADD_BOARD_SAGA,
+  SET_SELECTED,
 } from './types';
+
+const addBoardAction = payload => ({
+  type: ADD_BOARD_SAGA,
+  payload,
+});
+
+const changeBoardAction = payload => ({
+  type: SET_SELECTED,
+  payload,
+});
 
 const fetchBoardByIdAction = payload => ({
   type: FETCH_BOARD_SAGA,
@@ -20,8 +32,9 @@ const deleteListAction = payload => ({
 });
 
 export {
-  // eslint-disable-next-line import/prefer-default-export
   fetchBoardByIdAction,
   addListAction,
   deleteListAction,
+  addBoardAction,
+  changeBoardAction,
 };

@@ -47,10 +47,24 @@ const deleteListById = async (listId, boardId, selectedBoard, cardsToDelete) => 
   await Promise.all(cardDeletions);
 };
 
+const createBoardWithName = async (boardName, userId) => {
+  if (!boardName) return;
+  const newDoc = {
+    name: boardName,
+    createdOn: new Date(),
+    createdBy: userId,
+  };
+  const firestore = firebase.firestore();
+  const addedDoc = await firestore.collection('boards').add(newDoc);
+  return addedDoc.id;
+};
+
+
 const BoardHelpers = {
   getBoardById,
   addListToBoard,
   deleteListById,
+  createBoardWithName,
 };
 
 export default BoardHelpers;

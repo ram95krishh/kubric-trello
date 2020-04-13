@@ -30,7 +30,6 @@ const setSelected = (state, { payload }) => ({
 const INITIAL_STATE = {
   fetching: true,
   selected: null,
-  data: {},
 };
 
 export default createReducer(INITIAL_STATE, {

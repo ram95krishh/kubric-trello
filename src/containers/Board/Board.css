@@ -29,15 +29,21 @@
   animation: spin 2s linear infinite;
 }
 
+.boardOptions {
+  width: 8em;
+  font-weight: 700;
+  font-size: 1em;
+  height: 1.8em;
+  margin-left: 1em;
+}
+
+.boardOption {
+  background-color: white;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-.boardTitle {
-  font-weight: 700;
-  font-size: 1.3em;
-  margin-left: 1em;
 }
 
 .listsContainer {
