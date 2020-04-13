@@ -1,0 +1,10 @@
+.header {
+  background-color: darkgreen;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}

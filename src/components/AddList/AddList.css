@@ -1,0 +1,66 @@
+.addListArea {
+  background-color: darkgreen;
+  min-width: 16em;
+  height: 4em;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+.addListArea:focus {
+  outline: 0;
+  border: none;
+  outline-style: none;
+  -moz-outline-style: none;
+}
+
+.listTitleArea {
+  display: flex;
+  flex-direction: column;
+  background-color: darkgreen;
+  min-width: 16em;
+  height: 7em;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+.titleInput {
+  width: 100%;
+  background-color: white;
+  padding: 0.5em;
+  color: darkgreen;
+  font-size: small;
+  font-weight: bold;
+  height: 2em;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+}
+
+.titleInput:focus {
+  outline-style: none;
+  -moz-outline-style: none;
+}
+
+.titleButtons {
+  text-align: center;
+  background-color: white;
+  border-radius: 0.5em;
+  color: darkgreen;
+  width: 5em;
+  font-weight: bold;
+  height: 2em;
+  margin-top: 1em;
+}
+
+.titleButtons:focus {
+  outline: 0;
+  border: none;
+  outline-style: none;
+  -moz-outline-style: none;
+}
+
+.actionButtonsArea {
+  display: flex;
+  flex-direction: rows;
+  justify-content: space-between;
+}

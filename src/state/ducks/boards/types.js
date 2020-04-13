@@ -1,0 +1,15 @@
+const FETCH_BOARD_SAGA = 'app/boards/FETCH_BOARD_SAGA';
+const SET_BOARD_BY_ID = 'app/boards/SET_BOARD_BY_ID';
+const SET_FETCHING = 'app/boards/SET_FETCHING';
+const SET_SELECTED = 'app/boards/SET_SELECTED';
+const ADD_LIST_SAGA = 'app/boards/ADD_LIST_SAGA';
+const DELETE_LIST_SAGA = 'app/boards/DELETE_LIST_SAGA';
+
+export {
+  FETCH_BOARD_SAGA,
+  SET_BOARD_BY_ID,
+  SET_FETCHING,
+  SET_SELECTED,
+  ADD_LIST_SAGA,
+  DELETE_LIST_SAGA,
+};

@@ -1,0 +1,8 @@
+const ADD_CARD_SAGA = 'app/lists/ADD_CARD_SAGA';
+const UPDATE_CARD_SAGA = 'app/lists/UPDATE_CARD_SAGA';
+const DELETE_CARD_SAGA = 'app/lists/DELETE_CARD_SAGA';
+export {
+  ADD_CARD_SAGA,
+  UPDATE_CARD_SAGA,
+  DELETE_CARD_SAGA,
+};

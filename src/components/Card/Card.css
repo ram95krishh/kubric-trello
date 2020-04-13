@@ -1,0 +1,50 @@
+.cardItem {
+  background-color: white;
+  padding: 0.5em;
+  margin: 0.5em 0;
+}
+
+.cardInput {
+  width: 100%;
+  z-index: 10;
+  flex: 1;
+  box-sizing: border-box;
+  line-height: 18px;
+  border: none;
+  border-radius: 3px;
+  resize: none;
+  min-height: 2em;
+  overflow: auto;
+  overflow-wrap: break-word;
+  box-shadow: black;
+}
+
+.cardInput:focus {
+  outline-style: none;
+  -moz-outline-style: none;
+}
+
+.removeIconArea {
+  display: flex;
+  overflow: hidden;
+  float: right;
+}
+
+.removeIcon {
+  height: 0.6em;
+  width: 0.6em;
+}
+
+.removeIconArea:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.2em;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-radius: 1em;
+}
+
+.removeIconArea:focus {
+  outline: 0;
+  border: none;
+  outline-style: none;
+  -moz-outline-style: none;
+}

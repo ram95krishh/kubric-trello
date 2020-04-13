@@ -1,0 +1,61 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #d5d5d5;
+  color: black;
+  min-width: 20em;
+  max-width: 20em;
+  padding: 1em;
+  margin: 0.5em;
+}
+
+.listHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5em 0;
+}
+
+.listTitle {
+  font-size: medium;
+  font-weight: 600;
+}
+
+.deleteIconArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-right: 0.5em;
+  overflow: hidden;
+}
+
+.deleteIcon {
+  height: 1em;
+  width: 1em;
+}
+
+.deleteIconArea:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.2em;
+  border-color: rgba(0, 0, 0, 0.5);
+  border-radius: 2em;
+}
+
+.deleteIconArea:focus {
+  outline: 0;
+  border: none;
+  outline-style: none;
+  -moz-outline-style: none;
+}
+
+.addCardArea {
+  color: gray;
+  margin-top: 1em;
+}
+
+.addCardArea:focus {
+  outline: 0;
+  border: none;
+  outline-style: none;
+  -moz-outline-style: none;
+}

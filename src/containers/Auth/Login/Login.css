@@ -1,0 +1,16 @@
+.loginArea {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 30em;
+}
+
+.field {
+  width: 40%;
+}
+
+.signInButton {
+  width: '4em';
+}

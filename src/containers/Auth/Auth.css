@@ -1,0 +1,27 @@
+.authContainer {
+  background-color: white;
+  width: 40em;
+  height: 33em;
+}
+
+.tabArea {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.logo {
+  width: 10em;
+  background-color: green;
+  padding-bottom: 2em;
+}
+
+.container {
+  background-color: green;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+}
