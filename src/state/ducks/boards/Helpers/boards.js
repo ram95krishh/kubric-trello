@@ -59,29 +59,31 @@ const createBoardWithName = async (boardName, userId) => {
   return addedDoc.id;
 };
 
+const reorder = (arr, from, to) => (
+  arr.reduce((prev, current, idx, self) => {
+    if (idx === from) {
+      return prev;
+    }
+    if (from < to) {
+      prev.push(current);
+    }
+    if (idx === to) {
+      prev.push(self[from]);
+    }
+    if (from > to) {
+      prev.push(current);
+    }
+    return prev;
+  }, [])
+);
+
 const reorderLists = async (from, to, activeBoardId, listRefs) => {
   const firestore = firebase.firestore();
-  if (from < to) {
-    const updatedListRefs = [
-      ...listRefs.slice(from + 1, to + 1),
-      listRefs[from],
-      ...listRefs.slice(to + 1),
-    ];
-    const querySnapShot = await firestore.collection('boards').doc(activeBoardId).get();
-    await querySnapShot.ref.update({
-      lists: updatedListRefs,
-    });
-  } else {
-    const updatedListRefs = [
-      ...listRefs.slice(0, to),
-      listRefs[from],
-      ...listRefs.slice(to, from),
-    ];
-    const querySnapShot = await firestore.collection('boards').doc(activeBoardId).get();
-    await querySnapShot.ref.update({
-      lists: updatedListRefs,
-    });
-  }
+  const updatedListRefs = reorder(listRefs, from, to);
+  const querySnapShot = await firestore.collection('boards').doc(activeBoardId).get();
+  await querySnapShot.ref.update({
+    lists: updatedListRefs,
+  });
 };
 
 

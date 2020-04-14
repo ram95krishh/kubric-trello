@@ -9,6 +9,13 @@
   margin: 0.5em;
 }
 
+.listContainer:focus {
+  outline: 0;
+  border: none;
+  outline-style: none;
+  -moz-outline-style: none;
+}
+
 .listHeader {
   display: flex;
   flex-direction: row;
