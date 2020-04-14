@@ -4,6 +4,9 @@ import {
   deleteListAction,
   addBoardAction,
   changeBoardAction,
+  recordListBeingDraggedAction,
+  recordListLastDraggedOverAction,
+  reorderListsAction,
 } from './actions';
 
 import Noty from '../../../lib/Noty';
@@ -25,12 +28,25 @@ const addList = dispatch => payload => dispatch(addListAction(payload));
 
 const deleteList = dispatch => payload => dispatch(deleteListAction(payload));
 
+const recordListBeingDragged = dispatch => payload => dispatch(
+  recordListBeingDraggedAction(payload),
+);
+
+const recordListLastDraggedOver = dispatch => payload => dispatch(
+  recordListLastDraggedOverAction(payload),
+);
+
+const reorderLists = dispatch => () => dispatch(reorderListsAction());
+
 const operations = {
   addList,
   deleteList,
   fetchBoardById,
   addBoard,
   changeBoard,
+  recordListBeingDragged,
+  recordListLastDraggedOver,
+  reorderLists,
 };
 
 export default operations;

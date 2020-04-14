@@ -4,6 +4,9 @@ import {
   DELETE_LIST_SAGA,
   ADD_BOARD_SAGA,
   SET_SELECTED,
+  LIST_BEING_DRAGGED,
+  LIST_LAST_DRAGGED_OVER,
+  REORDER_LISTS_SAGA,
 } from './types';
 
 const addBoardAction = payload => ({
@@ -31,10 +34,27 @@ const deleteListAction = payload => ({
   payload,
 });
 
+const recordListBeingDraggedAction = payload => ({
+  type: LIST_BEING_DRAGGED,
+  payload,
+});
+
+const recordListLastDraggedOverAction = payload => ({
+  type: LIST_LAST_DRAGGED_OVER,
+  payload,
+});
+
+const reorderListsAction = () => ({
+  type: REORDER_LISTS_SAGA,
+});
+
 export {
   fetchBoardByIdAction,
   addListAction,
   deleteListAction,
   addBoardAction,
   changeBoardAction,
+  recordListBeingDraggedAction,
+  recordListLastDraggedOverAction,
+  reorderListsAction,
 };

@@ -1,11 +1,13 @@
 import {
   takeLatest,
+  takeEvery,
   all,
   call,
   put,
   putResolve,
   select,
 } from 'redux-saga/effects';
+import { pathOr } from 'ramda';
 
 import {
   FETCH_BOARD_SAGA,
@@ -14,6 +16,7 @@ import {
   DELETE_LIST_SAGA,
   SET_FETCHING,
   ADD_BOARD_SAGA,
+  REORDER_LISTS_SAGA,
 } from './types';
 
 import Noty from '../../../lib/Noty';
@@ -63,6 +66,21 @@ function* addBoard({ payload: { boardName, successCallback } }) {
   }
 }
 
+function* reorderLists() {
+  try {
+    const {
+      listBeingDragged: from,
+      listLastDraggedOver: to,
+    } = yield select(state => state.boards);
+    const activeBoardId = yield select(state => pathOr('', ['boards', 'selected'], state));
+    const listRefs = yield select(state => pathOr({}, ['firestore', 'data', 'boards', activeBoardId, 'lists'], state));
+    yield call(BoardHelpers.reorderLists, from, to, activeBoardId, listRefs);
+  } catch (err) {
+    Noty('Oops', 'Sorry, unable to reorder lists right now!', 'error');
+    console.log(err.message);
+  }
+}
+
 function* watchFetchBoard() {
   yield takeLatest(FETCH_BOARD_SAGA, fetchBoardById);
 }
@@ -77,6 +95,10 @@ function* watchDeleteList() {
 
 function* watchAddBoard() {
   yield takeLatest(ADD_BOARD_SAGA, addBoard);
+}
+
+function* watchReorderLists() {
+  yield takeEvery(REORDER_LISTS_SAGA, reorderLists);
 }
 
 export const TestExports = {
@@ -96,5 +118,6 @@ export function* combinedSagas() {
     watchAddList(),
     watchDeleteList(),
     watchAddBoard(),
+    watchReorderLists(),
   ]);
 }

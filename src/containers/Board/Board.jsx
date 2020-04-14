@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -39,7 +40,6 @@ class Board extends Component {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   loader() {
     return (
       <div styleName="loaderContainer">
@@ -60,7 +60,7 @@ class Board extends Component {
     return (
       <select onChange={event => this.handleBoardChange(event, boardOptions)} styleName="boardOptions" value={selected}>
         {boardOptions.map(board => (
-          <option name={board.name} styleName="boardOption" value={board.id}>{board.name}</option>
+          <option key={`${board.id}`} name={board.name} styleName="boardOption" value={board.id}>{board.name}</option>
         ))}
         <option styleName="boardOption" value="add">Add a board</option>
       </select>
@@ -68,11 +68,27 @@ class Board extends Component {
   }
 
   renderLists() {
-    const { data: { lists = [] }, deleteList } = this.props;
+    const {
+      data: { lists = [] },
+      deleteList,
+      recordListBeingDragged,
+      recordListLastDraggedOver,
+      reorderLists,
+    } = this.props;
     if (!lists.length) return null;
-    return lists.map((listRef) => {
+    return lists.map((listRef, index) => {
       const listId = listRef.id;
-      return <List key={`${listId}`} deleteList={deleteList} id={listId} />;
+      return (
+        <List
+          key={`${listId}`}
+          deleteList={deleteList}
+          id={listId}
+          index={index}
+          recordListBeingDragged={recordListBeingDragged}
+          recordListLastDraggedOver={recordListLastDraggedOver}
+          reorderLists={reorderLists}
+        />
+      );
     });
   }
 
@@ -118,6 +134,9 @@ const mapDispatchToProps = dispatch => ({
   fetchBoardById: boardOperations.fetchBoardById(dispatch),
   addList: boardOperations.addList(dispatch),
   deleteList: boardOperations.deleteList(dispatch),
+  recordListBeingDragged: boardOperations.recordListBeingDragged(dispatch),
+  recordListLastDraggedOver: boardOperations.recordListLastDraggedOver(dispatch),
+  reorderLists: boardOperations.reorderLists(dispatch),
 });
 
 Board.defaultProps = {
@@ -139,6 +158,9 @@ Board.propTypes = {
   fetchBoardById: PropTypes.func.isRequired,
   fetching: PropTypes.bool,
   id: PropTypes.string,
+  recordListBeingDragged: PropTypes.func.isRequired,
+  recordListLastDraggedOver: PropTypes.func.isRequired,
+  reorderLists: PropTypes.func.isRequired,
   selected: PropTypes.func.isRequired,
 };
 

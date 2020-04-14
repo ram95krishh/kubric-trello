@@ -59,12 +59,38 @@ const createBoardWithName = async (boardName, userId) => {
   return addedDoc.id;
 };
 
+const reorderLists = async (from, to, activeBoardId, listRefs) => {
+  const firestore = firebase.firestore();
+  if (from < to) {
+    const updatedListRefs = [
+      ...listRefs.slice(from + 1, to + 1),
+      listRefs[from],
+      ...listRefs.slice(to + 1),
+    ];
+    const querySnapShot = await firestore.collection('boards').doc(activeBoardId).get();
+    await querySnapShot.ref.update({
+      lists: updatedListRefs,
+    });
+  } else {
+    const updatedListRefs = [
+      ...listRefs.slice(0, to),
+      listRefs[from],
+      ...listRefs.slice(to, from),
+    ];
+    const querySnapShot = await firestore.collection('boards').doc(activeBoardId).get();
+    await querySnapShot.ref.update({
+      lists: updatedListRefs,
+    });
+  }
+};
+
 
 const BoardHelpers = {
   getBoardById,
   addListToBoard,
   deleteListById,
   createBoardWithName,
+  reorderLists,
 };
 
 export default BoardHelpers;
