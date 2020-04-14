@@ -28,6 +28,11 @@ function* watchStartupTasksInit() {
   yield takeLatest(INIT_START_UP_TASKS_SAGA, initStartUpTasks);
 }
 
+export const TestExports = {
+  watchStartupTasksInit,
+  initStartUpTasks,
+};
+
 // eslint-disable-next-line import/prefer-default-export
 export function* combinedSagas() {
   yield all([

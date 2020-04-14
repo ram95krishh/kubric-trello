@@ -60,6 +60,8 @@ function* watchLogins() {
 }
 
 export const TestExports = {
+  watchSignups,
+  watchLogins,
   initiateSignUp,
   initaiteLogin,
 };

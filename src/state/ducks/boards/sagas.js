@@ -80,7 +80,14 @@ function* watchAddBoard() {
 }
 
 export const TestExports = {
+  watchFetchBoard,
+  watchAddList,
+  watchDeleteList,
+  watchAddBoard,
   fetchBoardById,
+  addListToBoard,
+  deleteListById,
+  addBoard,
 };
 
 export function* combinedSagas() {

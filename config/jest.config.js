@@ -22,11 +22,11 @@ module.exports = {
   testResultsProcessor: 'jest-html-reporter',
   collectCoverage: true,
   collectCoverageFrom: [
-    '**/*.{js,jsx}',
+    '<rootDir>/src/state/ducks/**',
     '!**/node_modules/**',
     '!**/vendor/**',
   ],
   coverageDirectory: '<rootDir>/coverage',
   coverageReporters: ['lcov'],
-  setupFiles: ['<rootDir>/config/enzyme.setup.js'],
+  setupFiles: ['<rootDir>/config/enzyme.setup.js', '<rootDir>/config/jestGlobals.js'],
 };
