@@ -21,8 +21,8 @@ function* initiateSignUp({ payload }) {
     yield put({ type: SET_USER, payload: newUser });
     yield put({ type: SET_AUTHENTICATED });
     Noty('Success!', 'Login Successful!', 'success');
-  } catch (e) {
-    Noty('Oops', 'Sorry, Something went wrong!', 'error');
+  } catch (err) {
+    Noty('Oops', err.message, 'error');
   }
 }
 
