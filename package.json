@@ -88,7 +88,7 @@
     "postcss-preset-env": "^5.3.0",
     "regenerator-runtime": "^0.12.1",
     "style-loader": "^0.22.1",
-    "stylelint": "^9.5.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.1.1",
